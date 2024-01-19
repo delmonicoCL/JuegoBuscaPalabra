@@ -16,32 +16,44 @@ body {
 }
 
 .corazon {
-  width: 55px;
+  width: 45px;
 }
 
 .col {
-  border: 3px solid rgb(27, 27, 27);
+  /* border: 3px solid rgb(27, 27, 27); */
   border-radius: 15px;
 }
 
 .ZonaPalabraBuscada {
-  background-color: blueviolet;
+  background-color: #517290;
+  border: 3px solid rgb(27, 27, 27);
+  border-radius: 5px;
   height: 10vh;
 }
 
 .ZonaTeclado {
-  background-color: aquamarine;
+  background-color: #3bc691;
+  border: 3px solid rgb(27, 27, 27);
+  border-radius: 5px;
   height: 30vh;
 }
 
 .ZonaInfo {
-  background-color: chocolate;
+  background-color:#f8af9b;
+  border: 3px solid rgb(27, 27, 27);
+  border-radius: 5px;
   height: 15vh;
 }
 
 .ZonaImagen {
-  background-color: #e75959;
-  height: 60vh;
+  height: 15vh;
+  
+}
+
+.Imagen {
+
+  height: 550px;
+
 }
 
 .BarraHeader {
