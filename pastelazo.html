@@ -256,6 +256,9 @@
 
         var teclaseleccionada;
 
+         // Agregar la tecla al contenedor del teclado
+         contenedorTeclado.appendChild(teclaElemento);
+    
         // Agregar un evento de clic a cada tecla
         teclaElemento.addEventListener("click", function () {
           // Verificar si la tecla no ha sido seleccionada
@@ -277,35 +280,56 @@
           }
 
           function buscarLetra() {
-            // Recorre el array PalabraBuscada
-            for (var i = 0; i < PalabraBuscada.length; i++) {
-              // Compara la letra actual con teclaseleccionada
-              if (PalabraBuscada[i] === teclaseleccionada) {
-                // Muestra una alerta con la letra encontrada
-                alert("Letra encontrada: " + teclaseleccionada);
-                // Obtener todos los elementos con el ID igual al contenido de letrabuscada
-                var letraApintar = document.querySelectorAll(
-                  '[id="' + teclaseleccionada + '"]'
-                );
+    // Variable para verificar si la letra fue encontrada
+    var letraEncontrada = false;
 
-                // Iterar sobre los elementos y actualizar su contenido con el valor de letrabuscada
-                letraApintar.forEach(function (letra) {
-                  letra.innerHTML = teclaseleccionada;
-                });
-              }
-              
-              else {
-                // Si la letra no está en el array, realizar otras acciones
-                console.log('La letra no está en el array');
-                // Agrega aquí las instrucciones adicionales que deseas ejecutar
+    // Recorre el array PalabraBuscada
+    for (var i = 0; i < PalabraBuscada.length; i++) {
+        // Compara la letra actual con teclaseleccionada
+        if (PalabraBuscada[i] === teclaseleccionada) {
+            // Muestra una alerta con la letra encontrada
+            alert("Letra encontrada: " + teclaseleccionada);
+            // Obtener todos los elementos con el ID igual al contenido de teclaseleccionada
+            var letraApintar = document.querySelectorAll('[id="' + teclaseleccionada + '"]');
+
+            // Iterar sobre los elementos y actualizar su contenido con el valor de teclaseleccionada
+            letraApintar.forEach(function (letra) {
+                letra.innerHTML = teclaseleccionada;
+            });
+
+            // Indica que la letra fue encontrada
+            letraEncontrada = true;
+        }
+    }
+
+    // Si la letra no fue encontrada, cargar una imagen en ZonaImagen
+    if (!letraEncontrada) {
+        // Supongamos que tienes un array de nombres de imágenes
+        var imagenes = ['1.png', '2.png', '3.png', '4.png', '5.png', '6.png'];
+        var contadorErrores = 0;
+
+        // Construir el nombre de la imagen en función del contador de errores
+        var nombreImagen = './assets/images/' + imagenes[contadorErrores - 1];
+
+        // Crear un nuevo elemento de imagen
+        var nuevaImagen = document.createElement('img');
+
+        // Asignar el atributo src con la ruta de la imagen
+        nuevaImagen.src = nombreImagen;
+
+        // Obtener el elemento "Zona Imagen" y agregar la nueva imagen
+        var zonaImagen = document.getElementById('ZonaImagen');
+        zonaImagen.appendChild(nuevaImagen);
+
+        // Incrementar el contador de errores para la próxima vez
+        contadorErrores++;
+    }
 }
-            }
           }
+        )
         });
 
-        // Agregar la tecla al contenedor del teclado
-        contenedorTeclado.appendChild(teclaElemento);
-      });
+       
 
       const SonidoTecla = new Audio(
         "assets/media/mp3/tecla_maquinaescribir.wav"
