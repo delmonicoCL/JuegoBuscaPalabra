@@ -1,84 +1,238 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&family=Rammetto+One&display=swap"
-      rel="stylesheet"
-    />
-    <script
-      src="https://kit.fontawesome.com/f1d3ec1e99.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="assets/js/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <title>Juego Pastelazo -</title>
-  </head>
-  <body>
-    <div class="BarraHeader mt-5 d-flex justify-content-around">
-      <!-- <div id="timer"></div> -->
-      <div>
-        <img class="corazon" src="assets/images/corazon.png" />
-        <img class="corazon" src="assets/images/corazon.png" />
-        <img class="corazon" src="assets/images/corazon.png" />
-        <img class="corazon" src="assets/images/corazon.png" />
-        <img class="corazon" src="assets/images/corazon.png" />
-        <img class="corazon" src="assets/images/corazon.png" />
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&family=Rammetto+One&display=swap"
+    rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/f1d3ec1e99.js" crossorigin="anonymous"></script>
+  <script src="assets/js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-      <div style="color: #345675">
-        <h2>Busca la<span style="color: #faffff"> Palabra </span> escondida</h2>
-      </div>
-      <div onclick="confirmarSalida()">
-        <i class="fa-solid fa-circle-xmark" style="color: #fc8d72"></i>
-      </div>
-    </div>
+  <title>Juego Pastelazo -</title>
+</head>
 
-    <div class="container mt-5">
-      <div class="row justify-content-evenly">
-        <div class="col-5 col d-flex justify-content: space-evenly;">
-            <div>
-              <img class ="imagen" src="./assets/images/1.png" alt="" style="object-fit: cover;height: 580px;">
-            </div>
-        </div>
-     
-        <div class="col-7 col">
-          
-          <div class="d-grid gap-3">
-            <div id="ZonaPalabraBuscada" class="ZonaPalabraBuscada p-2 border mb-4">ZonaPalabraBuscada</div>
-            <div id="ZonaTeclado" class="ZonaTeclado p-2 border mb-4">ZonaTeclado</div>
-            <div id="ZonaInfo" class="ZonaInfo p-2 border">ZonaInfo</div>
-          </div>
-          
-        </div>
-      </div>
-
-      <!-- <div class="contenedor-puzzle" id="contenedor-puzzle"></div>
-        <div class="grilla" id="grilla"></div> -->
-    </div>
-
-    <div class="BarraFooter mt-5 d-flex justify-content-around">
-      <h2 style="color: rgb(255, 254, 252)">
-        Salva a Laia de sufrir
-        <span style="color: #517290"> un pastelazo </span>en su rostro
-      </h2>
-    </div>
-
+<body>
+  <div class="BarraHeader mt-5 d-flex justify-content-around">
+    <!-- <div id="timer"></div> -->
     <div>
-      <audio id="miAudio" class="miAudio" >
+      <img class="corazon" src="assets/images/corazon.png" />
+      <img class="corazon" src="assets/images/corazon.png" />
+      <img class="corazon" src="assets/images/corazon.png" />
+      <img class="corazon" src="assets/images/corazon.png" />
+      <img class="corazon" src="assets/images/corazon.png" />
+      <img class="corazon" src="assets/images/corazon.png" />
+    </div>
+
+    <div style="color: #345675">
+      <h2>Busca la palabra escondida</h2>
+    </div>
+    <div onclick="confirmarSalida()">
+      <i class="fa-solid fa-circle-xmark" style="color: #fc8d72"></i>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <div class="row justify-content-evenly">
+      <div class="col-5 col d-flex justify-content: space-evenly;">
+        <div>
+          <img class="imagen" src="./assets/images/1.png" alt="" style="object-fit: cover; height: 580px" />
+        </div>
+      </div>
+
+      <div class="col-7 col">
+        <div class="d-grid gap-3">
+
+          <div id="ZonaPalabraBuscada" class="ZonaPalabraBuscada d-flex justify-content-around p-2  mb-5">
+
+
+          </div>
+
+          <div id="ZonaInfo" class="ZonaInfo p-2 border mb-4 d-flex align-items-center justify-content-center">
+
+
+
+          </div>
+        </div>
+
+
+
+        <div id="ZonaTeclado" class="ZonaTeclado p-2 mb-2">
+          <!-- Div que contendrá las teclas del teclado -->
+          <div id="teclado" class="d-flex flex-wrap justify-content-around">
+            <!-- Letras del teclado se agregarán aquí dinámicamente -->
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="BarraFooter mt-5 d-flex justify-content-around">
+    <h2 style="color: rgb(255, 254, 252)">
+      Salva a <span style="color: #517290">MAIA</span> de sufrir
+      un pastelazo en su rostro
+    </h2>
+  </div>
+
+
+  <script>
+    // Array de animales
+  var Palabras = [
+    { nombre: "COCODRILO", src: "assets/images/cocodrilo.jpg", pista: "Es un reptil que vive en el agua", descripcion: "El cocodrilo puede medir 2 metros y tiene una piel escamosa" },
+    { nombre: "RINOCERONTE", src: "assets/images/rinoceronte.jpg", pista: "Es un animal gigante con un cuerno en la nariz", descripcion: "Vive en África y le encanta revolcarse en el lodo" },
+    { nombre: "ELEFANTE", src: "assets/images/elefante.jpg", pista: "Es el animal más grande de la selva y tiene una trompa larga", descripcion: "Le encanta comer cacahuetes y es muy amigable" },
+    { nombre: "JIRAFA", src: "assets/images/jirafa.jpg", pista: "Es un animal con un cuello largo que vive en la sabana", descripcion: "Come hojas de los árboles y es conocida por su altura" },
+    { nombre: "PINGÜINO", src: "assets/images/pinguino.jpg", pista: "Es un pájaro que no vuela y vive en el frío", descripcion: "Los pingüinos son excelentes nadadores y tienen un andar gracioso" },
+    { nombre: "FELICIDAD", src: "assets/images/felicidad.jpg", pista: "Es sentirse muy contento y alegre", descripcion: "La felicidad es como cuando recibes un regalo sorpresa" },
+    { nombre: "SORPRESA", src: "assets/images/sorpresa.jpg", pista: "Es la cara que pones cuando algo inesperado sucede", descripcion: "La sorpresa puede ser encontrar un tesoro o ver a un amigo inesperadamente" },
+    { nombre: "TRISTEZA", src: "assets/images/tristeza.jpg", pista: "Es sentirse un poco triste y con ganas de llorar", descripcion: "La tristeza puede ser superada con un abrazo y palabras amigas" },
+    { nombre: "ANSIEDAD", src: "assets/images/ansiedad.jpg", pista: "Es sentirse nervioso o preocupado por algo que va a pasar", descripcion: "La ansiedad se va cuando respiras profundamente y piensas en cosas positivas" },
+    { nombre: "EMPATÍA", src: "assets/images/empatia.jpg", pista: "Es entender y compartir los sentimientos de otras personas", descripcion: "La empatía es como ponerse en los zapatos de un amigo para comprender cómo se siente" },
+    { nombre: "AMOR", src: "assets/images/amor.jpg", pista: "Es sentir cariño y afecto profundo por alguien", descripcion: "El amor es como un abrazo cálido de alguien que te importa mucho" },
+    { nombre: "BARCELONA", src: "assets/images/barcelona.jpg", pista: "Es una ciudad en España famosa por su arquitectura única", descripcion: "Barcelona tiene edificios increíbles creados por un arquitecto llamado Gaudí" },
+    { nombre: "VALENCIA", src: "assets/images/valencia.jpg", pista: "Es una ciudad en España conocida por las fiestas y la paella", descripcion: "Valencia tiene una fiesta llamada Las Fallas y la comida es deliciosa, especialmente la paella" },
+    { nombre: "MADRID", src: "assets/images/madrid.jpg", pista: "Es la capital de España y tiene muchos lugares interesantes", descripcion: "Madrid es famosa por su gran parque llamado El Retiro y por el Palacio Real" },
+    { nombre: "GRANADA", src: "assets/images/granada.jpg", pista: "Es una ciudad en España con un palacio llamado La Alhambra", descripcion: "Granada es famosa por su hermoso palacio y sus jardines, llenos de fuentes y flores" },
+    { nombre: "SEVILLA", src: "assets/images/sevilla.jpg", pista: "Es una ciudad en el sur de España con una torre llamada La Giralda", descripcion: "Sevilla tiene una feria llamada Feria de Abril, donde la gente baila, come y se divierte" },
+];
+
+    // Seleccionar aleatoriamente un objeto del array
+    var animalSeleccionado = Palabras[Math.floor(Math.random() * Palabras.length)];
+
+    // Obtener la palabra oculta del objeto seleccionado
+    var PalabraOculta = animalSeleccionado.nombre;
+    var PalabraBuscada = PalabraOculta.split("");
+
+    // Obtener el contenedor del teclado
+    var tecladoContainer = document.getElementById("ZonaPalabraBuscada");
+
+    // Generar dinámicamente los divs con el contenido del array
+    for (var i = 0; i < PalabraBuscada.length; i++) {
+      var divTecla = document.createElement("div");
+      divTecla.className = "tecla-teclado1 btn m-1";
+      divTecla.id = PalabraBuscada[i];
+      // divTecla.innerHTML = PalabraBuscada[i];
+
+      // Agregar el div al contenedor
+      tecladoContainer.appendChild(divTecla);
+
+      // Mostrar la descripción en la zona de información
+      var zonaInfo = document.getElementById("ZonaInfo");
+      zonaInfo.innerHTML = `<h1>${animalSeleccionado.pista}</h1>`;
+
+    }
+  </script>
+
+
+
+
+  <!-- Scripts de jQuery y Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Script JavaScript para crear dinámicamente las teclas del teclado -->
+  <script>
+
+    // Array con el alfabeto de la A a la Z
+    const alfabeto = Array.from({ length: 26 }, (_, i) => String.fromCharCode('A'.charCodeAt(0) + i));
+
+    // Obtener el elemento contenedor del teclado por su ID
+    const contenedorTeclado = document.getElementById('teclado');
+
+    // Crear teclas del teclado en español desde el array
+    alfabeto.forEach(letra => {
+      // Crear un elemento div para representar cada tecla
+      const teclaElemento = document.createElement('div');
+      // Asignar clases para aplicar estilos de Bootstrap y personalizados
+      teclaElemento.className = 'tecla-teclado btn m-1';
+      // Establecer el contenido de la tecla como la letra actual
+      teclaElemento.textContent = letra;
+      // Asignar el Id de la tecla como la letra actual
+      teclaElemento.id = letra;
+
+  var teclaseleccionada;
+
+   // Agregar un evento de clic a cada tecla
+  teclaElemento.addEventListener('click', function() {
+    // Verificar si la tecla no ha sido seleccionada
+    if (!this.classList.contains('teclaseleccionada')) {
+      // Almacenar la letra seleccionada
+      teclaseleccionada = this.textContent;
+      SonidoTecla.play();
+      this.classList.add('teclaseleccionada');
+      // Desactivar el evento de clic para evitar selecciones adicionales
+      this.removeEventListener('click', arguments.callee);
+
+      // Imprimir el valor en la consola
+      console.log('Letra seleccionada:', teclaseleccionada);
+
+      // Imprimir Array Palabra Buscada
+        console.log('PalabraBUSCADA:', PalabraBuscada);
+     
+      buscarLetra();  
+
+
+    }
+
+function buscarLetra() {
+    // Recorre el array PalabraBuscada
+    for (var i = 0; i < PalabraBuscada.length; i++) {
+        // Compara la letra actual con teclaseleccionada
+        if (PalabraBuscada[i] === teclaseleccionada) {
+            // Muestra una alerta con la letra encontrada
+            alert('Letra encontrada: ' + teclaseleccionada);
+           
+            // Obtener todos los elementos con la clase "E"
+            var elementosConClaseE = document.querySelectorAll('.E');
+
+          // Iterar sobre los elementos y actualizar su contenido
+          elementosConClaseE.forEach(function(elemento) {
+              elemento.innerHTML = 'E'; // Puedes cambiar el contenido según tu necesidad
+});
+
+
+        }
+    }
+}
+
+
+  });
+
+  // Agregar la tecla al contenedor del teclado
+  contenedorTeclado.appendChild(teclaElemento);
+
+
+      
+
+
+
+
+
+    });
+
+    const SonidoTecla = new Audio("assets/media/mp3/tecla_maquinaescribir.wav");
+
+  </script>
+
+
+
+
+  <div> <!-- AUDIO -->
+
+    <!-- <audio id="miAudio" class="miAudio" >
         <source src="assets/media/cute-creatures.mp3" type="audio/mpeg" />
         Tu navegador no soporta la etiqueta de audio.
-      </audio>
-      <div></div>
-    </div>
-  </body>
+      </audio> -->
+  </div> <!-- AUDIO -->
+</body>
+
 </html>

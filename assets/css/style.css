@@ -25,24 +25,28 @@ body {
 }
 
 .ZonaPalabraBuscada {
-  background-color: #517290;
+  /* background-color: #517290;
   border: 3px solid rgb(27, 27, 27);
-  border-radius: 5px;
+  border-radius: 5px; */
   height: 10vh;
+  /* border: 1px solid; 
+  border-color: #345574; */
+    border-radius: 50px;
 }
 
 .ZonaTeclado {
-  background-color: #3bc691;
-  border: 3px solid rgb(27, 27, 27);
-  border-radius: 5px;
-  height: 30vh;
+  /* background-color: #3bc691; */
+  /* border: 3px solid rgb(27, 27, 27); */
+  /* border-radius: 5px; */
+  height: 15vh;
 }
 
 .ZonaInfo {
-  background-color:#f8af9b;
-  border: 3px solid rgb(27, 27, 27);
-  border-radius: 5px;
-  height: 15vh;
+  /* background-color:#f8af9b; */
+  border-radius: 50px;
+  height: 20vh;
+  color:#345574;
+  text-align: center;
 }
 
 .ZonaImagen {
@@ -84,6 +88,50 @@ body {
         gap: 10px;
         border-radius: 15px;
       }
+
+.palabra-buscada {
+  cursor: pointer;
+  user-select: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 35px;
+  font-size: 35px;
+  background-color: #746834;
+
+}
+
+/* Estilo para las teclas del teclado */
+.tecla-teclado {
+        cursor: pointer;
+        user-select: none;
+        width: 55px;
+        height: 55px;
+        border-radius: 25px;
+        font-size: 25px;
+        background-color:#345574;
+        
+      }
+
+
+            .tecla-teclado1 {
+              cursor: pointer;
+              user-select: none;
+              width: 90px;
+              height: 70px;
+              border-radius: 15px;
+              font-size: 35px;
+              background-color: #3bc691;
+      
+            }
+/* Estilo para teclas seleccionadas */
+.teclaseleccionada {
+        background-color: #fc8d72;
+        color:#fff;
+      }
+
+
+
+
 
 /* .contenedor {
   width: 100%;
