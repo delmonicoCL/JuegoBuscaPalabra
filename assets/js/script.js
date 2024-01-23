@@ -152,7 +152,7 @@ function actualizarNombreJugador() {
         nombreJugadorSpan.textContent = nombreJugador;
     } else {
         // Si no hay un nombre almacenado, puedes mostrar un mensaje predeterminado o manejarlo según tus necesidades
-        nombreJugadorSpan.textContent = "Jugador AnónimoSS";
+        nombreJugadorSpan.textContent = "Jugador Anónimo";
     }
 }
 
@@ -214,7 +214,7 @@ var Palabras = [
   {
     nombre: "TRISTEZA",
     src: "assets/images/galeria/tristeza.png",
-    pista: "Es sentirse un poco triste y con ganas de llorar",
+    pista: "Es sentirse con melancolia y ganas de llorar",
     descripcion:
       "La tristeza puede ser desapecer con un abrazo y palabras de cariño. Compartir tus sentimientos con alguien de confianza te hace sientir mejor.",
   },
