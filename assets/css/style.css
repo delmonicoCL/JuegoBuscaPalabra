@@ -15,34 +15,35 @@ body {
   font-family: "Rammetto One", sans-serif;
 }
 
+
+img{
+border-radius: 25px;
+
+}
+
 .corazon {
   width: 45px;
 }
 
 .col {
-  /* border: 3px solid rgb(27, 27, 27); */
+ 
   border-radius: 15px;
 }
 
 .ZonaPalabraBuscada {
-  /* background-color: #517290;
-  border: 3px solid rgb(27, 27, 27);
-  border-radius: 5px; */
+  
   height: 10vh;
-  /* border: 1px solid; 
-  border-color: #345574; */
+ 
     border-radius: 50px;
 }
 
 .ZonaTeclado {
-  /* background-color: #3bc691; */
-  /* border: 3px solid rgb(27, 27, 27); */
-  /* border-radius: 5px; */
+  
   height: 15vh;
 }
 
 .ZonaInfo {
-  /* background-color:#f8af9b; */
+  
   border-radius: 50px;
   height: 20vh;
   color:#345574;
@@ -51,6 +52,7 @@ body {
 
 .ZonaImagen {
   height: 15vh;
+ 
   
 }
 
@@ -104,8 +106,8 @@ body {
 .tecla-teclado {
         cursor: pointer;
         user-select: none;
-        width: 55px;
-        height: 55px;
+        width: 50px;
+        height: 50px;
         border-radius: 25px;
         font-size: 25px;
         background-color:#345574;
@@ -125,107 +127,13 @@ body {
             }
 /* Estilo para teclas seleccionadas */
 .teclaseleccionada {
-        background-color: #fc8d72;
+        background-color: #fdc477;
         color:#fff;
       }
 
-
-
-
-
-/* .contenedor {
-  width: 100%;
-  max-width: 1200px;
-  margin: auto;
-  padding: 40px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  height: 60vh;
-} */
-
-/* .contenedor-puzzle {
-  
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.grilla {
-  
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-} */
-
-/* .ImagContainer {
-  overflow: hidden;
-  background-color: rgba(220, 255, 255, 0.9);
-  border: 3px solid #e75959;
-  width: 200px;
-  height: 200px;
-  
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  border-radius: 15px;
-} */
-
-/* .DragContainer {
-  width: 200px;
-  height: 200px;
-  border-radius: 15px;
-} */
-
-
-
-/* #videoPresentacion {
-  border-radius: 50px;
-} */
-
-
-/* 
-
-.ContainerFinJuego {
-  width: 100%;
-  height: 100%;
-}
-
-.titulo {
-  font-size: 24px;
-  padding: 20px 0;
-}
-
-#imagenFondo {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-#timer {
-  font-size: 2rem; 
-  font-weight: bold;
-}
-
 #videoPresentacion {
-  border-radius: 50px;
-  width: 1200px;
-  height: 750px;
-}
+  border-radius: 15px;
+  width: 1150px;
+  height: 690px;
 
-.miAudio {
-  display: none;
 }
-
-#enviar {
-  background-color: #fc8d72; 
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 35px;
-  margin: 4px 2px;
-  cursor: pointer;
-} */
