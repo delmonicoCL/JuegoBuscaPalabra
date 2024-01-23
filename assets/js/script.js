@@ -123,6 +123,41 @@ function ganaste() {
     });
   }, 100000);
 }
+
+
+function nombreJugador() {
+  // Utilizar un cuadro de diálogo de entrada para obtener el nombre del jugador
+  var nombreJugador = prompt("Ingresa tu nombre:");
+
+  // Verificar si el jugador ingresó un nombre y no canceló la entrada
+  if (nombreJugador !== null && nombreJugador.trim() !== "") {
+      localStorage.setItem("jugador", nombreJugador);
+    window.location.href = "juego.html";
+    console.log("Nombre del jugador almacenado:", nombreJugador);
+  } else {
+    console.log("No se ingresó un nombre.");
+  }
+}
+
+function actualizarNombreJugador() {
+    // Obtener el nombre del jugador almacenado en localStorage
+    var nombreJugador = localStorage.getItem("jugador");
+
+    // Obtener el elemento span por su id
+    var nombreJugadorSpan = document.getElementById("nombreJugadorSpan");
+
+    // Verificar si el nombre del jugador está almacenado
+    if (nombreJugador) {
+        // Actualizar el contenido del elemento span con el nombre del jugador
+        nombreJugadorSpan.textContent = nombreJugador;
+    } else {
+        // Si no hay un nombre almacenado, puedes mostrar un mensaje predeterminado o manejarlo según tus necesidades
+        nombreJugadorSpan.textContent = "Jugador AnónimoSS";
+    }
+}
+
+actualizarNombreJugador();
+
 // Array de Palabras
 
 var Palabras = [
