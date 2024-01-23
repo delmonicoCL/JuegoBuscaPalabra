@@ -487,7 +487,7 @@ alfabeto.forEach((letra) => {
     var imagenPregunta = new Image();
 
     // Establecer la ruta de la imagen pregunta.png
-    imagenPregunta.src = "/assets/images/galeria/pregunta.png";
+    imagenPregunta.src = "assets/images/galeria/pregunta.png";
 
     // Agregar la imagen al elemento con el ID "ZonaImagen"
     var zonaImagen = document.getElementById("ZonaImagen");
