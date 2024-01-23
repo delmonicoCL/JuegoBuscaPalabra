@@ -1,47 +1,43 @@
-function confirmarSalida() {
-  salirSound.play();
-  detenerTemporizador();
-  Swal.fire({
-    imageUrl: "assets/images/tiempo3.png",
-    imageWidth: 400,
-    imageHeight: 480,
-    color: "#716add",
-    background: "#fff url(assets/images/salir.png)",
-    showCancelButton: true,
-    confirmButtonColor: "#517290",
-    cancelButtonColor: "#fc8d72",
-    confirmButtonText: "SI",
-    cancelButtonText: "NO",
-    showClass: {
-      popup: `
+function salir() {
+  setTimeout(() => {
+    Swal.fire({
+      imageUrl: "assets/images/fondo_alert.png",
+      position: "center",
+      imageWidth: 400,
+      imageHeight: 480,
+      color: "#716add",
+      background: "#fff url(assets/images/salir.png)",
+      showCancelButton: true,
+      confirmButtonColor: "#517290",
+      cancelButtonColor: "#fc8d72",
+      confirmButtonText: "SI",
+      cancelButtonText: "NO",
+      showClass: {
+        popup: `
                   animate__animated
                   animate__fadeInUp
                   animate__faster
                 `,
-    },
-    hideClass: {
-      popup: `
+      },
+      hideClass: {
+        popup: `
                 animate__animated
                 animate__fadeOutDown
                 animate__faster
               `,
-    },
-  }).then((result) => {
-    if (result.isConfirmed) {
-      // Swal.fire({
-      //   title: '¡Hasta luego!',
-      //   icon:  'success',
-      //   showConfirmButton: false,
-      //   timer:1500,
-      // })
-      setTimeout(() => {
-        window.location.href = "adios.html";
-      }, 1500);
-    } else {
-      // Reanudar el tiempo si el usuario decide no salir
-      iniciarTemporizador();
-    }
-  });
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setTimeout(() => {
+          window.location.href = "adios.html";
+        }, 500);
+      } else {
+        setTimeout(() => {
+          window.location.href = "juego.html";
+        }, 500);
+      }
+    });
+  }, 10);
 }
 
 function perdiste() {
@@ -470,10 +466,6 @@ const LetraCorrecta = new Audio("assets/media/mp3/piezacorrecta.mp3");
 const LetraIncorrecta = new Audio("assets/media/mp3/piezaincorrecta.mp3");
 const Finjuego = new Audio("assets/media/mp3/baby.mp3");
 const Ganaste = new Audio("assets/media/mp3/win.mp3");
-
-
-
-
 
 // CODIGO JS PARA USAR//
 
