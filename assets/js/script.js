@@ -124,14 +124,13 @@ function ganaste() {
   }, 100000);
 }
 
-
 function nombreJugador() {
   // Utilizar un cuadro de diálogo de entrada para obtener el nombre del jugador
   var nombreJugador = prompt("Ingresa tu nombre:");
 
   // Verificar si el jugador ingresó un nombre y no canceló la entrada
   if (nombreJugador !== null && nombreJugador.trim() !== "") {
-      localStorage.setItem("jugador", nombreJugador);
+    localStorage.setItem("jugador", nombreJugador);
     window.location.href = "juego.html";
     console.log("Nombre del jugador almacenado:", nombreJugador);
   } else {
@@ -140,20 +139,20 @@ function nombreJugador() {
 }
 
 function actualizarNombreJugador() {
-    // Obtener el nombre del jugador almacenado en localStorage
-    var nombreJugador = localStorage.getItem("jugador");
+  // Obtener el nombre del jugador almacenado en localStorage
+  var nombreJugador = localStorage.getItem("jugador");
 
-    // Obtener el elemento span por su id
-    var nombreJugadorSpan = document.getElementById("nombreJugadorSpan");
+  // Obtener el elemento span por su id
+  var nombreJugadorSpan = document.getElementById("nombreJugadorSpan");
 
-    // Verificar si el nombre del jugador está almacenado
-    if (nombreJugador) {
-        // Actualizar el contenido del elemento span con el nombre del jugador
-        nombreJugadorSpan.textContent = nombreJugador;
-    } else {
-        // Si no hay un nombre almacenado, puedes mostrar un mensaje predeterminado o manejarlo según tus necesidades
-        nombreJugadorSpan.textContent = "Jugador Anónimo";
-    }
+  // Verificar si el nombre del jugador está almacenado
+  if (nombreJugador) {
+    // Actualizar el contenido del elemento span con el nombre del jugador
+    nombreJugadorSpan.textContent = nombreJugador;
+  } else {
+    // Si no hay un nombre almacenado, puedes mostrar un mensaje predeterminado o manejarlo según tus necesidades
+    nombreJugadorSpan.textContent = "Jugador Anónimo";
+  }
 }
 
 actualizarNombreJugador();
@@ -399,7 +398,6 @@ alfabeto.forEach((letra) => {
       }
 
       if (!letraEncontrada) {
-        LetraIncorrecta.play();
         contadorErrores++;
         console.log("ContadorErrores:", contadorErrores);
         // Obtener el elemento "Zona Imagen"
@@ -415,6 +413,12 @@ alfabeto.forEach((letra) => {
         var nuevaImagen = new Image();
 
         if (contadorErrores === 1) {
+          LetraIncorrecta.play();
+
+          // Modifica BARRRA FOOTER con la cantidad de vidas restantes //
+          var barraFooter = document.getElementById("BarraFooter");
+          barraFooter.innerHTML = `<h1>Te quedan 5 Vidas <img src="assets/images/corazonAzul.png" class="corazon" alt="Corazón"></h1>`;
+
           // Asignar el atributo src con la ruta de la primera imagen
           nuevaImagen.src = "assets/images/fotos_pastelazo/imagen1.png";
           // Obtener el elemento VIDA que deseas eliminar
@@ -422,6 +426,11 @@ alfabeto.forEach((letra) => {
           // Eliminar el elemento del DOM
           vidas.remove();
         } else if (contadorErrores === 2) {
+          LetraIncorrecta.play();
+          // Modifica BARRRA FOOTER con la cantidad de vidas restantes //
+          var barraFooter = document.getElementById("BarraFooter");
+          barraFooter.innerHTML = `<h1>Te quedan 4 Vidas <img src="assets/images/corazonAzul.png" class="corazon" alt="Corazón"></h1>`;
+
           // Asignar el atributo src con la ruta de la segunda imagen
           nuevaImagen.src = "assets/images/fotos_pastelazo/imagen2.png";
           // Obtener el elemento VIDA que deseas eliminar
@@ -429,6 +438,10 @@ alfabeto.forEach((letra) => {
           // Eliminar el elemento del DOM
           vidas.remove();
         } else if (contadorErrores === 3) {
+          LetraIncorrecta.play();
+          // Modifica BARRRA FOOTER con la cantidad de vidas restantes //
+          var barraFooter = document.getElementById("BarraFooter");
+          barraFooter.innerHTML = `<h1>Te quedan 3 Vidas <img src="assets/images/corazonAzul.png" class="corazon" alt="Corazón"></h1>`;
           // Asignar el atributo src con la ruta de la tercera imagen
           nuevaImagen.src = "assets/images/fotos_pastelazo/imagen3.png";
           // Obtener el elemento VIDA que deseas eliminar
@@ -436,13 +449,21 @@ alfabeto.forEach((letra) => {
           // Eliminar el elemento del DOM
           vidas.remove();
         } else if (contadorErrores === 4) {
+          LetraIncorrecta.play();
           // Asignar el atributo src con la ruta de la cuarta imagen
+          // Modifica BARRRA FOOTER con la cantidad de vidas restantes //
+          var barraFooter = document.getElementById("BarraFooter");
+          barraFooter.innerHTML = `<h1>Te quedan 2 Vidas <img src="assets/images/corazonAzul.png" class="corazon" alt="Corazón"></h1>`;
           nuevaImagen.src = "assets/images/fotos_pastelazo/imagen4.png";
           var vidas = document.getElementById("vida4");
           // Eliminar el elemento del DOM
           vidas.remove();
         } else if (contadorErrores === 5) {
+          LetraIncorrecta.play();
           // Asignar el atributo src con la ruta de la quinta imagen
+          // Modifica BARRRA FOOTER con la cantidad de vidas restantes //
+          var barraFooter = document.getElementById("BarraFooter");
+          barraFooter.innerHTML = `<h1>Te quedan 1 Vidas <img src="assets/images/corazonAzul.png" class="corazon" alt="Corazón"></h1>`;
           nuevaImagen.src = "assets/images/fotos_pastelazo/imagen5.png";
           // Obtener el elemento VIDA que deseas eliminar
           var vidas = document.getElementById("vida5");
@@ -450,6 +471,10 @@ alfabeto.forEach((letra) => {
           vidas.remove();
         } else if (contadorErrores === 6) {
           Finjuego.play();
+
+          // Modifica BARRRA FOOTER con la cantidad de vidas restantes //
+          var barraFooter = document.getElementById("BarraFooter");
+          barraFooter.innerHTML = `<h1>Te quedaste sin Vidas <img src="assets/images/corazonAzul.png" class="corazon" alt="Corazón"></h1>`;
           // Asignar el atributo src con la ruta de la quinta imagen
           nuevaImagen.src = "assets/images/fotos_pastelazo/imagen6.png";
           // Obtener el elemento VIDA que deseas eliminar
@@ -499,187 +524,8 @@ alfabeto.forEach((letra) => {
 const SonidoTecla = new Audio("assets/media/mp3/tecla_maquinaescribir.wav");
 const LetraCorrecta = new Audio("assets/media/mp3/piezacorrecta.mp3");
 const LetraIncorrecta = new Audio("assets/media/mp3/piezaincorrecta.mp3");
+LetraIncorrecta.volume = 0.5;
 const Finjuego = new Audio("assets/media/mp3/baby.mp3");
+Finjuego.volume = 0.5;
 const Ganaste = new Audio("assets/media/mp3/win.mp3");
-
-// CODIGO JS PARA USAR//
-
-// const TIME_LIMIT = 2000;
-// let timePassed = 0;
-// let timeLeft = TIME_LIMIT;
-// let gameInterval;
-
-// // Llamamos a la función cuentaAtras inmediatamente al cargar la página
-// iniciarTemporizador();
-
-// const timeSound = new Audio("assets/media/time.mp3");
-// const gameOverSound = new Audio("assets/media/gameover.mp3");
-
-// function iniciarTemporizador() {
-//   gameInterval = setTimeout(cuentaAtras, 1000);
-// }
-
-// function detenerTemporizador() {
-//   clearTimeout(gameInterval);
-// }
-
-// function cuentaAtras() {
-//   const gameOverSound = new Audio("assets/media/gameover.mp3");
-//   timePassed++;
-//   timeLeft = TIME_LIMIT - timePassed;
-
-//   let timerElement = document.getElementById("timer");
-//   timerElement.textContent = "Te quedan " + timeLeft + " Segundos ";
-
-//   if (timeLeft < 16) {
-//     timeSound.play();
-//   }
-
-//   if (timeLeft <= 0) {
-//     detenerTemporizador(); // Detener el temporizador
-
-//     timeSound.pause();
-//     timeSound.currentTime = 0;
-//     gameOverSound.play();
-
-//     Swal.fire({
-//       imageUrl:'assets/images/tiempo3.png',
-//       imageWidth: 400,
-//       imageHeight: 480,
-//       color: "#716add",
-
-//    background: "#fff url(assets/images/tiempo.png)",
-
-//       showCancelButton: true,
-//       confirmButtonColor: "#fc8d72",
-//       cancelButtonColor: "#517290",
-//       confirmButtonText: "SI",
-//       cancelButtonText: "NO",
-//       showClass: {
-//         popup: `
-//                   animate__animated
-//                   animate__fadeInUp
-//                   animate__faster
-//                 `,
-//       },
-//       hideClass: {
-//         popup: `
-//                 animate__animated
-//                 animate__fadeOutDown
-//                 animate__faster
-//               `,
-//       },
-//     }).then((result) => {
-//       if (result.isConfirmed) {
-//         var currentPage = window.location.pathname; // Obtiene la ruta de la página actual
-
-//         if (currentPage.includes("solar.html")) {
-//           window.location.href = "solar.html";
-//         } else if (currentPage.includes("eolica.html")) {
-//           window.location.href = "eolica.html";
-//         } else if (currentPage.includes("bateria.html")) {
-//           window.location.href = "bateria.html";
-//         }
-//       } else {
-//         // Reanudar el tiempo si el usuario decide no salir
-//         // Swal.fire({
-//         //   title: '¡NOS VEMOS PRONTO!',
-//         //   icon:  'success',
-//         //   showConfirmButton: false,
-//         //   timer:1500,
-//         // })
-//         setTimeout(() => {
-//           window.location.href = "adios.html";
-//         }, 1500);
-//       }
-//     });
-//   } else {
-//     iniciarTemporizador(); // Iniciar el temporizador para el siguiente segundo
-//   }
-// }
-
-// // TEMPORIZADOR DE TIEMPO //
-
-// // BOTON SALIR ///
-// const salirSound = new Audio("assets/media/salir-sound.mp3");
-// function confirmarSalida() {
-//   salirSound.play();
-//   detenerTemporizador();
-//   Swal.fire({
-//     imageUrl:'assets/images/tiempo3.png',
-//     imageWidth: 400,
-//     imageHeight: 480,
-//     color: "#716add",
-//      background: "#fff url(assets/images/salir.png)",
-//      showCancelButton: true,
-//     confirmButtonColor: "#517290",
-//     cancelButtonColor: "#fc8d72",
-//     confirmButtonText: "SI",
-//     cancelButtonText: "NO",
-//     showClass: {
-//       popup: `
-//                   animate__animated
-//                   animate__fadeInUp
-//                   animate__faster
-//                 `,
-//     },
-//     hideClass: {
-//       popup: `
-//                 animate__animated
-//                 animate__fadeOutDown
-//                 animate__faster
-//               `,
-//     },
-//   }).then((result) => {
-//     if (result.isConfirmed) {
-//       // Swal.fire({
-//       //   title: '¡Hasta luego!',
-//       //   icon:  'success',
-//       //   showConfirmButton: false,
-//       //   timer:1500,
-//       // })
-//       setTimeout(() => {
-//         window.location.href = "adios.html";
-//       }, 1500);
-//     } else {
-//       // Reanudar el tiempo si el usuario decide no salir
-//       iniciarTemporizador();
-//     }
-//   });
-// }
-
-// // BOTON SALIR ///
-
-// // FUNCION SONIDO DE FONDO //
-
-// window.onload = function sonido() {
-//   var audio = document.getElementById("miAudio");
-//   audio.volume = 0.2; // Establecer volumen al 20%
-//   audio.play(); // Reproducir automáticamente el archivo de audio
-
-//   audio.addEventListener("ended", function () {
-//     audio.currentTime = 0; // Reiniciar el tiempo de reproducción al inicio
-//     audio.play(); // Reproducir nuevamente el archivo de audio
-//   });
-// };
-
-// function puntajeFINAL() {
-
-//   // Recuperar puntajes almacenados
-//   puntajeEO = parseInt(localStorage.getItem("puntajeEO")) || 0;
-//   puntajeSOL = parseInt(localStorage.getItem("puntajeSOL")) || 0;
-//   puntajeBAT = parseInt(localStorage.getItem("puntajeBAT")) || 0;
-
-//   // Calcular puntaje total
-//   var puntajeTotal = puntajeSOL + puntajeEO + puntajeBAT;
-//   console.log(typeof puntajeTotal);
-
-//   // Mostrar puntaje total en un div con id "resultadoPuntaje"
-//   document.getElementById("resultadoPuntaje").innerHTML =
-//     "Puntaje Total: " + puntajeTotal;
-//     let puntuacion=document.getElementById("puntuacion");
-//    puntuacion.value=puntajeTotal;
-
-//    }
-
-// puntajeFINAL();
+Ganaste.volume = 0.5;

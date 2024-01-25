@@ -91,6 +91,32 @@ border-radius: 25px;
         border-radius: 15px;
       }
 
+      .BarraFooterIndex {
+        width: 100%;
+        height: 110px;
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 35px;
+        gap: 10px;
+        border-radius: 15px;
+      }
+
+      .botonJugar{
+
+        font-size: 3rem;
+        color: #fff;
+        background-color: #fc8d72;
+        border-radius: 15px;
+
+
+
+      }
+
+
+      
 .palabra-buscada {
   cursor: pointer;
   user-select: none;
@@ -132,7 +158,7 @@ border-radius: 25px;
       }
 
 #videoPresentacion {
-  border-radius: 15px;
+  border-radius: 25px;
   width: 1150px;
   height: 690px;
 

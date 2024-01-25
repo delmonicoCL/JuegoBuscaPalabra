@@ -1,91 +1,110 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&family=Rammetto+One&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/f1d3ec1e99.js"
+      crossorigin="anonymous"
+    ></script>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&family=Rammetto+One&display=swap"
-    rel="stylesheet" />
-  <script src="https://kit.fontawesome.com/f1d3ec1e99.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon" />
 
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  
+    <title>Juego El Buscapalabras - Marcelo Carvajal -</title>
+  </head>
 
-  <title>Juego Pastelazo -</title>
-</head>
-
-<body>
-  <div class="BarraHeader mt-5 d-flex justify-content-around">
-    <!-- <div id="timer"></div> -->
-    <div class="d-flex">
-      <div id="vida1"><img class="corazon" src="assets/images/corazon.png" /></div>
-      <div id="vida2"><img class="corazon" src="assets/images/corazon.png" /></div>
-      <div id="vida3"><img class="corazon" src="assets/images/corazon.png" /></div>
-      <div id="vida4"><img class="corazon" src="assets/images/corazon.png" /></div>
-      <div id="vida5"><img class="corazon" src="assets/images/corazon.png" /></div>
-      <div id="vida6"><img class="corazon" src="assets/images/corazon.png" /></div>
-    </div>
-
-    <div id="nombreJugadorDiv" style="color: #345675"> <h2><span style="color: #fff" id="nombreJugadorSpan"></span></h2></div>
-    <div style="color: #345675"><h2>Encuentra la Palabra</h2>   </div>
-    <div onclick="salir()"><i class="fa-solid fa-circle-xmark" style="color: #fc8d72;"></i></div>
-  </div>
-
-  <div class="container mt-5">
-    <div class="row justify-content-evenly">
-
-      <div id="ZonaImagen" class="col-5 col d-flex justify-content: space-evenly;">
-        <div></div>
+  <body>
+    <div class="BarraHeader mt-5 d-flex justify-content-around">
+      <div class="d-flex">
+        <div id="vida1">
+          <img class="corazon" src="assets/images/corazon.png" />
+        </div>
+        <div id="vida2">
+          <img class="corazon" src="assets/images/corazon.png" />
+        </div>
+        <div id="vida3">
+          <img class="corazon" src="assets/images/corazon.png" />
+        </div>
+        <div id="vida4">
+          <img class="corazon" src="assets/images/corazon.png" />
+        </div>
+        <div id="vida5">
+          <img class="corazon" src="assets/images/corazon.png" />
+        </div>
+        <div id="vida6">
+          <img class="corazon" src="assets/images/corazon.png" />
+        </div>
       </div>
 
-      <div class="col-7 col">
-        <div class="d-grid gap-3">
-          <div id="ZonaPalabraBuscada" class="ZonaPalabraBuscada d-flex justify-content-around p-2 mb-5"></div>
-          <div id="ZonaInfo" class="ZonaInfo p-2 border mb-4 d-flex align-items-center justify-content-center"></div>
+      <div id="nombreJugadorDiv" style="color: #345675">
+        <h2><span style="color: #fff" id="nombreJugadorSpan"></span></h2>
+      </div>
+      <div style="color: #345675"><h2>Encuentra la Palabra</h2></div>
+      <div onclick="salir()">
+        <i class="fa-solid fa-circle-xmark" style="color: #fc8d72"></i>
+      </div>
+    </div>
+
+    <div class="container mt-5">
+      <div class="row justify-content-evenly">
+        <div
+          id="ZonaImagen"
+          class="col-5 col d-flex justify-content: space-evenly;"
+        >
+          <div></div>
         </div>
 
-        <div id="ZonaTeclado" class="ZonaTeclado p-2 mb-5">
-          <!-- Div que contendrá las teclas del teclado -->
-          <div id="teclado" class="d-flex flex-wrap justify-content-around">
-            <!-- Letras del teclado se agregarán aquí dinámicamente -->
+        <div class="col-7 col">
+          <div class="d-grid gap-3">
+            <div
+              id="ZonaPalabraBuscada"
+              class="ZonaPalabraBuscada d-flex justify-content-around p-2 mb-5"
+            ></div>
+            <div
+              id="ZonaInfo"
+              class="ZonaInfo p-2 border mb-4 d-flex align-items-center justify-content-center"
+            ></div>
+          </div>
+
+          <div id="ZonaTeclado" class="ZonaTeclado p-2 mb-5">
+            <!-- Div que contendrá las teclas del teclado -->
+            <div id="teclado" class="d-flex flex-wrap justify-content-around">
+              <!-- Letras del teclado se agregarán aquí dinámicamente -->
+            </div>
           </div>
         </div>
-
       </div>
-
     </div>
-  </div>
 
-  <div id="BarraFooter" class="BarraFooter mt-5 d-flex justify-content-around">
-    <h2 style="color: rgb(255, 254, 252)">
-      Salva a <span style="color: #517290">MAIA</span> de sufrir un pastelazo
-      en su rostro
-    </h2>
-  </div>
+    <div
+      id="BarraFooter"
+      class="BarraFooter mt-5 d-flex justify-content-around"
+    >
+      <h2 style="color: rgb(255, 254, 252)">
+        Salva a <span style="color: #517290">MAIA</span> de sufrir un tartazo en
+        su rostro
+      </h2>
+    </div>
 
+    <!-- Scripts de jQuery y Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-  <!-- Scripts de jQuery y Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="assets/js/script.js"></script>
 
-  <script src="assets/js/script.js"></script>
-
-
-
-  <div>
-    <!-- AUDIO -->
-
-    <!-- <audio id="miAudio" class="miAudio" >
-        <source src="assets/media/cute-creatures.mp3" type="audio/mpeg" />
-        Tu navegador no soporta la etiqueta de audio.
-      </audio> -->
-  </div>
-  <!-- AUDIO -->
-</body>
-
+    <div></div>
+  </body>
 </html>
