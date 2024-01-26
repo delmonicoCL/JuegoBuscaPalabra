@@ -3,8 +3,8 @@ function salir() {
     Swal.fire({
       imageUrl: "assets/images/fondo_alert.png",
       position: "center",
-      imageWidth: 400,
-      imageHeight: 480,
+      imageWidth: 400/3,
+      imageHeight: 480/3,
       color: "#716add",
       background: "#fff url(assets/images/salir.png)",
       showCancelButton: true,
@@ -45,8 +45,8 @@ function perdiste() {
     Swal.fire({
       imageUrl: "assets/images/fondo_alert.png",
       position: "center",
-      imageWidth: 400,
-      imageHeight: 480,
+      imageWidth: 400/3,
+      imageHeight: 480/3,
       color: "#716add",
       background: "#fff url(assets/images/perdiste.png)",
       showCancelButton: true,
@@ -418,7 +418,7 @@ alfabeto.forEach((letra) => {
           // Modifica BARRRA FOOTER con la cantidad de vidas restantes //
           var barraFooter = document.getElementById("BarraFooter");
           barraFooter.innerHTML = `<div class="d-flex justify-content-center align-items-center justify-content-center">
-          <h1 class="m-0">Tienes 5 Vidas</h1>
+          <h1 class="m-0">Tienes 5 </h1>
           <img src="assets/images/corazonAzul.png" class="corazon ml-2" alt="Corazón">
         </div>
       `;
@@ -434,7 +434,7 @@ alfabeto.forEach((letra) => {
           // Modifica BARRRA FOOTER con la cantidad de vidas restantes //
           var barraFooter = document.getElementById("BarraFooter");
           barraFooter.innerHTML = `<div class="d-flex justify-content-center align-items-center justify-content-center">
-          <h1 class="m-0">Tienes 4 Vidas</h1>
+          <h1 class="m-0">Tienes 4 </h1>
           <img src="assets/images/corazonAzul.png" class="corazon ml-2" alt="Corazón">
         </div>
       `;
@@ -450,7 +450,7 @@ alfabeto.forEach((letra) => {
           // Modifica BARRRA FOOTER con la cantidad de vidas restantes //
           var barraFooter = document.getElementById("BarraFooter");
           barraFooter.innerHTML = `<div class="d-flex justify-content-center align-items-center justify-content-center">
-            <h1 class="m-0">Tienes 3 Vidas</h1>
+            <h1 class="m-0">Tienes 3</h1>
             <img src="assets/images/corazonAzul.png" class="corazon ml-2" alt="Corazón">
           </div>
         `;
@@ -466,7 +466,7 @@ alfabeto.forEach((letra) => {
           // Modifica BARRRA FOOTER con la cantidad de vidas restantes //
           var barraFooter = document.getElementById("BarraFooter");
           barraFooter.innerHTML = `<div class="d-flex justify-content-center align-items-center justify-content-center">
-          <h1 class="m-0">Tienes 2 Vidas</h1>
+          <h1 class="m-0">Tienes 2 </h1>
           <img src="assets/images/corazonAzul.png" class="corazon ml-2" alt="Corazón">
         </div>
       `;
@@ -480,7 +480,7 @@ alfabeto.forEach((letra) => {
           // Modifica BARRRA FOOTER con la cantidad de vidas restantes //
           var barraFooter = document.getElementById("BarraFooter");
           barraFooter.innerHTML = `<div class="d-flex justify-content-center align-items-center justify-content-center">
-          <h1 class="m-0">Te quedan 1 Vida</h1>
+          <h1 class="m-0">Tienes 1</h1>
           <img src="assets/images/corazonAzul.png" class="corazon ml-2" alt="Corazón">
         </div>
       `;
