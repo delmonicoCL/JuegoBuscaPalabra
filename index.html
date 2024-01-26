@@ -27,17 +27,21 @@
   </head>
 
   <body>
+
+
+    
     <div class="container mt-5">
-      <div class="d-flex justify-content-center">
-        <video id="videoPresentacion" autoplay loop>
-          <source src="assets/media/buscapalabras .mp4" type="video/mp4" />
-        </video>
+      <!-- Contenedor del video -->
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="assets/media/buscapalabras .mp4" allowfullscreen autoplay></iframe>
       </div>
     </div>
 
+
+
     <div
       id="BarraFooter"
-      class="BarraFooterIndex mt-1 d-flex justify-content-around"
+      class="BarraFooterIndex mt-5 d-flex justify-content-around" style="min-height: 100px"
     >
       <button type="button" class="btn botonJugar" onclick="nombreJugador()">
         A JUGAR

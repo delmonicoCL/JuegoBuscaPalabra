@@ -32,15 +32,12 @@ border-radius: 25px;
 
 .ZonaPalabraBuscada {
   
-  height: 10vh;
+ 
  
     border-radius: 50px;
 }
 
-.ZonaTeclado {
-  
-  height: 15vh;
-}
+
 
 .ZonaInfo {
   
@@ -50,11 +47,7 @@ border-radius: 25px;
   text-align: center;
 }
 
-.ZonaImagen {
-  height: 15vh;
- 
-  
-}
+
 
 .Imagen {
 
@@ -63,8 +56,7 @@ border-radius: 25px;
 }
 
 .BarraHeader {
-        width: 100%;
-        height: 100px;
+      
         background-color: #98f3c9;
         max-width: 1200px;
         margin: auto;
@@ -78,8 +70,7 @@ border-radius: 25px;
 
 
 .BarraFooter {
-        width: 100%;
-        height: 110px;
+       
         background-color: #fc8d72;
         max-width: 1200px;
         margin: auto;
@@ -159,7 +150,7 @@ border-radius: 25px;
 
 #videoPresentacion {
   border-radius: 25px;
-  width: 1150px;
-  height: 690px;
+  /* width: 1150px;
+  height: 690px; */
 
 }

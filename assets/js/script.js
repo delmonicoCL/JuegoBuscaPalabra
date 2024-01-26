@@ -289,7 +289,7 @@ for (var i = 0; i < PalabraBuscada.length; i++) {
 
   // Mostrar la descripción en la zona de información
   var zonaInfo = document.getElementById("ZonaInfo");
-  zonaInfo.innerHTML = `<h2>${PalabraSeleccionada.pista}</h2>`;
+  zonaInfo.innerHTML = `<h3>${PalabraSeleccionada.pista}</h3>`;
 }
 
 contadorErrores = 0;
@@ -372,7 +372,7 @@ alfabeto.forEach((letra) => {
           console.log("HAS GANADO");
           Ganaste.play();
           var zonaInfo = document.getElementById("ZonaInfo");
-          zonaInfo.innerHTML = `<h4>${PalabraSeleccionada.descripcion}</h4>`;
+          zonaInfo.innerHTML = `<h5>${PalabraSeleccionada.descripcion}</h5>`;
 
           cambiarZonaFotter();
           ganaste();
@@ -417,7 +417,11 @@ alfabeto.forEach((letra) => {
 
           // Modifica BARRRA FOOTER con la cantidad de vidas restantes //
           var barraFooter = document.getElementById("BarraFooter");
-          barraFooter.innerHTML = `<h1>Te quedan 5 Vidas <img src="assets/images/corazonAzul.png" class="corazon" alt="Corazón"></h1>`;
+          barraFooter.innerHTML = `<div class="d-flex justify-content-center align-items-center justify-content-center">
+          <h1 class="m-0">Tienes 5 Vidas</h1>
+          <img src="assets/images/corazonAzul.png" class="corazon ml-2" alt="Corazón">
+        </div>
+      `;
 
           // Asignar el atributo src con la ruta de la primera imagen
           nuevaImagen.src = "assets/images/fotos_pastelazo/imagen1.png";
@@ -429,7 +433,11 @@ alfabeto.forEach((letra) => {
           LetraIncorrecta.play();
           // Modifica BARRRA FOOTER con la cantidad de vidas restantes //
           var barraFooter = document.getElementById("BarraFooter");
-          barraFooter.innerHTML = `<h1>Te quedan 4 Vidas <img src="assets/images/corazonAzul.png" class="corazon" alt="Corazón"></h1>`;
+          barraFooter.innerHTML = `<div class="d-flex justify-content-center align-items-center justify-content-center">
+          <h1 class="m-0">Tienes 4 Vidas</h1>
+          <img src="assets/images/corazonAzul.png" class="corazon ml-2" alt="Corazón">
+        </div>
+      `;
 
           // Asignar el atributo src con la ruta de la segunda imagen
           nuevaImagen.src = "assets/images/fotos_pastelazo/imagen2.png";
@@ -441,7 +449,11 @@ alfabeto.forEach((letra) => {
           LetraIncorrecta.play();
           // Modifica BARRRA FOOTER con la cantidad de vidas restantes //
           var barraFooter = document.getElementById("BarraFooter");
-          barraFooter.innerHTML = `<h1>Te quedan 3 Vidas <img src="assets/images/corazonAzul.png" class="corazon" alt="Corazón"></h1>`;
+          barraFooter.innerHTML = `<div class="d-flex justify-content-center align-items-center justify-content-center">
+            <h1 class="m-0">Tienes 3 Vidas</h1>
+            <img src="assets/images/corazonAzul.png" class="corazon ml-2" alt="Corazón">
+          </div>
+        `;
           // Asignar el atributo src con la ruta de la tercera imagen
           nuevaImagen.src = "assets/images/fotos_pastelazo/imagen3.png";
           // Obtener el elemento VIDA que deseas eliminar
@@ -453,7 +465,11 @@ alfabeto.forEach((letra) => {
           // Asignar el atributo src con la ruta de la cuarta imagen
           // Modifica BARRRA FOOTER con la cantidad de vidas restantes //
           var barraFooter = document.getElementById("BarraFooter");
-          barraFooter.innerHTML = `<h1>Te quedan 2 Vidas <img src="assets/images/corazonAzul.png" class="corazon" alt="Corazón"></h1>`;
+          barraFooter.innerHTML = `<div class="d-flex justify-content-center align-items-center justify-content-center">
+          <h1 class="m-0">Tienes 2 Vidas</h1>
+          <img src="assets/images/corazonAzul.png" class="corazon ml-2" alt="Corazón">
+        </div>
+      `;
           nuevaImagen.src = "assets/images/fotos_pastelazo/imagen4.png";
           var vidas = document.getElementById("vida4");
           // Eliminar el elemento del DOM
@@ -463,8 +479,12 @@ alfabeto.forEach((letra) => {
           // Asignar el atributo src con la ruta de la quinta imagen
           // Modifica BARRRA FOOTER con la cantidad de vidas restantes //
           var barraFooter = document.getElementById("BarraFooter");
-          barraFooter.innerHTML = `<h1>Te quedan 1 Vidas <img src="assets/images/corazonAzul.png" class="corazon" alt="Corazón"></h1>`;
-          nuevaImagen.src = "assets/images/fotos_pastelazo/imagen5.png";
+          barraFooter.innerHTML = `<div class="d-flex justify-content-center align-items-center justify-content-center">
+          <h1 class="m-0">Te quedan 1 Vida</h1>
+          <img src="assets/images/corazonAzul.png" class="corazon ml-2" alt="Corazón">
+        </div>
+      `;
+      nuevaImagen.src = "assets/images/fotos_pastelazo/imagen5.png";
           // Obtener el elemento VIDA que deseas eliminar
           var vidas = document.getElementById("vida5");
           // Eliminar el elemento del DOM
@@ -474,7 +494,7 @@ alfabeto.forEach((letra) => {
 
           // Modifica BARRRA FOOTER con la cantidad de vidas restantes //
           var barraFooter = document.getElementById("BarraFooter");
-          barraFooter.innerHTML = `<h1>Te quedaste sin Vidas <img src="assets/images/corazonAzul.png" class="corazon" alt="Corazón"></h1>`;
+          barraFooter.innerHTML = `<h1>Sin Vidas <img src="assets/images/corazonAzul.png" class="corazon" alt="Corazón"></h1>`;
           // Asignar el atributo src con la ruta de la quinta imagen
           nuevaImagen.src = "assets/images/fotos_pastelazo/imagen6.png";
           // Obtener el elemento VIDA que deseas eliminar
