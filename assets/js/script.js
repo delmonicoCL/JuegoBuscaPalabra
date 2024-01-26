@@ -515,11 +515,11 @@ alfabeto.forEach((letra) => {
       var barraFooter = document.getElementById("BarraFooter");
 
       // Define el nuevo contenido HTML que deseas establecer
-      var nuevoContenido = ` <h2 style="color: rgb(255, 254, 252)">
+      var nuevoContenido = ` <h3 style="color: rgb(255, 254, 252)">
         <a href="juego.html" style="text-decoration: none; color: inherit;">
             VOLVER A JUGAR
         </a>
-    </h2>`;
+    </h3>`;
 
       // Cambia el contenido del div utilizando innerHTML
       barraFooter.innerHTML = nuevoContenido;
