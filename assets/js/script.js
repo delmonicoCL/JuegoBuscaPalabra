@@ -548,4 +548,4 @@ LetraIncorrecta.volume = 0.5;
 const Finjuego = new Audio("assets/media/mp3/baby.mp3");
 Finjuego.volume = 0.5;
 const Ganaste = new Audio("assets/media/mp3/win.mp3");
-Ganaste.volume = 0.5;
+// Ganaste.volume = 0.5;
