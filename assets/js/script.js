@@ -3,8 +3,8 @@ function salir() {
     Swal.fire({
       imageUrl: "assets/images/fondo_alert.png",
       position: "center",
-      imageWidth: 400/3,
-      imageHeight: 480/3,
+      // imageWidth: 400/3,
+      // imageHeight: 480/3,
       color: "#716add",
       background: "#fff url(assets/images/salir.png)",
       showCancelButton: true,
@@ -45,8 +45,8 @@ function perdiste() {
     Swal.fire({
       imageUrl: "assets/images/fondo_alert.png",
       position: "center",
-      imageWidth: 400/3,
-      imageHeight: 480/3,
+      // imageWidth: 400/3,
+      // imageHeight: 480/3,
       color: "#716add",
       background: "#fff url(assets/images/perdiste.png)",
       showCancelButton: true,
