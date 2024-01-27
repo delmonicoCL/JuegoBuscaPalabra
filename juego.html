@@ -27,50 +27,61 @@
 
   <body>
     <div class="container">
+      <div
+        id="barra"
+        class="row BarraHeader mt-5 d-flex align-items-center"
+        style="min-height: 100px"
+      >
+        <div
+          class="d-flex justify-content-center col-12 col-md-2 mt-md-0 mt-4"
+          style="color: #fff"
+        >
+          <h2>VIDAS</h2>
+        </div>
 
-      <div id="barra" class="row BarraHeader mt-5 d-flex justify-content-around flex-wrap" style="min-height: 100px">
-      <div class="d-flex justify-content-center col-12 col-md-2 mt-md-0" style="color: #fff">
-        <h2>VIDAS</h2>
-      </div>
-      
-      <div class="d-flex justify-content-around col-12 col-md-5">
-        <div id="vida1" class="mx-0.5">
-          <img class="corazon" src="assets/images/corazon.png" />
+        <div class="d-flex justify-content-center col-12 col-md-5">
+          <div id="vida1" class="mx-0.5">
+            <img class="corazon" src="assets/images/corazon.png" />
+          </div>
+          <div id="vida2" class="mx-0.5">
+            <img class="corazon" src="assets/images/corazon.png" />
+          </div>
+          <div id="vida3" class="mx-0.5">
+            <img class="corazon" src="assets/images/corazon.png" />
+          </div>
+          <div id="vida4" class="mx-0.5">
+            <img class="corazon" src="assets/images/corazon.png" />
+          </div>
+          <div id="vida5" class="mx-0.5">
+            <img class="corazon" src="assets/images/corazon.png" />
+          </div>
+          <div id="vida6" class="mx-0.5">
+            <img class="corazon" src="assets/images/corazon.png" />
+          </div>
         </div>
-        <div id="vida2" class="mx-0.5">
-          <img class="corazon" src="assets/images/corazon.png" />
-        </div>
-        <div id="vida3" class="mx-0.5">
-          <img class="corazon" src="assets/images/corazon.png" />
-        </div>
-        <div id="vida4" class="mx-0.5">
-          <img class="corazon" src="assets/images/corazon.png" />
-        </div>
-        <div id="vida5" class="mx-0.5">
-          <img class="corazon" src="assets/images/corazon.png" />
-        </div>
-        <div id="vida6" class="mx-0.5">
-          <img class="corazon" src="assets/images/corazon.png" />
-        </div>
-      </div>
 
-        <div class="d-flex justify-content-center col-12 col-md-2 mt-md-0" id="nombreJugadorDiv" style="color: #345675">
+        <div
+          class="d-flex justify-content-center col-12 col-md-2 mt-md-0"
+          id="nombreJugadorDiv"
+          
+        >
           <h1><span style="color: #fff" id="nombreJugadorSpan"></span></h1>
         </div>
-      
-        <div class="d-flex justify-content-center col-12 col-md-2  mt-md-0" onclick="salir()">
+
+        <div
+          class="d-flex justify-content-center col-12 col-md-2 mt-md-0 mb-3"
+          onclick="salir()"
+        >
           <i class="fa-solid fa-circle-xmark" style="color: #fc8d72"></i>
         </div>
       </div>
-
-  
 
       <div class="container mt-4">
         <div class="row justify-content-evenly">
           <!-- ZonaImagen -->
           <div
             id="ZonaImagen"
-            class="col-12 col-md-5 d-flex justify-content-around"
+            class="col-12 col-md-5 mt-3 d-flex justify-content-around"
           >
             <!-- Contenido de ZonaImagen -->
           </div>
@@ -81,7 +92,7 @@
               <!-- ZonaPalabraBuscada -->
               <div
                 id="ZonaPalabraBuscada"
-                class="ZonaPalabraBuscada d-flex justify-content-around p-2 mb-5"
+                class="ZonaPalabraBuscada d-flex flex-row justify-content-center p-2 mt-5 mb-5 w-100"
               ></div>
 
               <!-- ZonaInfo -->
@@ -105,17 +116,17 @@
         </div>
       </div>
 
-      <div id="BarraFooter"  class="row BarraFooter mt-3 d-flex justify-content-center flex-wrap"
-      style="min-height: 100px">
-      <div class="d-flex  flex-wrap justify-content-center">
-        <h4 style="color: rgb(255, 254, 252)">
-          Salva a <span style="color: #517290">MAIA</span> del tartazo
-        </h>
-
+      <div
+        id="BarraFooter"
+        class="row BarraFooter mt-3 d-flex justify-content-center flex-wrap"
+        style="min-height: 100px"
+      >
+        <div class="d-flex flex-wrap justify-content-center">
+          <h3 style="color: rgb(255, 254, 252)">
+            <a style="text-decoration: none; color: inherit"> Salva a MAIA </a>
+          </h3>
+        </div>
       </div>
-      
-      </div>
-      
 
       <!-- Scripts de jQuery y Bootstrap JS -->
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

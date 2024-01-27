@@ -15,10 +15,8 @@ body {
   font-family: "Rammetto One", sans-serif;
 }
 
-
-img{
-border-radius: 25px;
-
+img {
+  border-radius: 25px;
 }
 
 .corazon {
@@ -26,131 +24,107 @@ border-radius: 25px;
 }
 
 .col {
- 
   border-radius: 15px;
 }
 
 .ZonaPalabraBuscada {
-  
- 
- 
-    border-radius: 50px;
+  border-radius: 50px;
 }
 
-
-
 .ZonaInfo {
-  
   border-radius: 50px;
   height: 20vh;
-  color:#345574;
+  color: #345574;
   text-align: center;
 }
 
-
-
 .Imagen {
-
   height: 550px;
-
 }
 
 .BarraHeader {
-      
-        background-color: #98f3c9;
-        max-width: 1200px;
-        margin: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 35px;
-        gap: 10px;
-        border-radius: 15px;
-      }
-
+  background-color: #98f3c9;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+  gap: 10px;
+  border-radius: 15px;
+}
 
 .BarraFooter {
-       
-        background-color: #fc8d72;
-        max-width: 1200px;
-        margin: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 35px;
-        gap: 10px;
-        border-radius: 15px;
-      }
+  background-color: #fc8d72;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+  gap: 10px;
+  border-radius: 15px;
+}
 
-      .BarraFooterIndex {
-        width: 100%;
-        height: 110px;
-        max-width: 1200px;
-        margin: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 35px;
-        gap: 10px;
-        border-radius: 15px;
-      }
+.BarraFooterIndex {
+  width: 100%;
+  height: 110px;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+  gap: 10px;
+  border-radius: 15px;
+}
 
-      .botonJugar{
+.botonJugar {
+  font-size: 3rem;
+  color: #fff;
+  background-color: #fc8d72;
+  border-radius: 15px;
+}
 
-        font-size: 3rem;
-        color: #fff;
-        background-color: #fc8d72;
-        border-radius: 15px;
-
-
-
-      }
-
-
-      
 .palabra-buscada {
   cursor: pointer;
   user-select: none;
-  width: 60px;
-  height: 60px;
+  /* width: 60px;
+  height: 60px; */
   border-radius: 35px;
   font-size: 35px;
   background-color: #746834;
-
 }
 
 /* Estilo para las teclas del teclado */
 .tecla-teclado {
-        cursor: pointer;
-        user-select: none;
-        /* width: 50px;
+  cursor: pointer;
+  user-select: none;
+  /* width: 50px;
         height: 50px; */
-        border-radius: 25px;
-        font-size: 25px;
-        background-color:#345574;
-        
-      }
+  border-radius: 25px;
+  font-size: 25px;
+  background-color: #345574;
+}
 
+.tecla-teclado1 {
+  cursor: pointer;
+  user-select: none;
+  width: 90vw;
 
-            .tecla-teclado1 {
-              cursor: pointer;
-              user-select: none;
-              width: 90px;
-              height: 70px;
-              border-radius: 15px;
-              font-size: 35px;
-              background-color: #3bc691;
-      
-            }
+  border-radius: 15px;
+  font-size: 2em;
+  /* El tamaño de fuente será 1.25 veces el tamaño del font-size del elemento padre */
+  background-color: #3bc691;
+}
 /* Estilo para teclas seleccionadas */
 .teclaseleccionada {
-        background-color: #fdc477;
-        color:#fff;
-      }
+  background-color: #fdc477;
+  color: #fff;
+}
 
 #videoPresentacion {
   border-radius: 25px;
   /* width: 1150px;
   height: 690px; */
-
 }

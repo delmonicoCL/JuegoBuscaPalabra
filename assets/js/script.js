@@ -125,18 +125,40 @@ function ganaste() {
 }
 
 function nombreJugador() {
-  // Utilizar un cuadro de diálogo de entrada para obtener el nombre del jugador
-  var nombreJugador = prompt("Ingresa tu nombre:");
+  // Utilizar SweetAlert2 para obtener el nombre del jugador
+  Swal.fire({
+    title: "Ingresa tu nombre:",
+    input: "text",
+    inputPlaceholder: "Nombre",
+    showCancelButton: true,
+    confirmButtonText: "Aceptar",
+    cancelButtonText: "Cancelar",
+    confirmButtonColor: "#3bc691", // Color del botón de confirmación
+    cancelButtonColor: "#fdc477", // Color del botón de cancelación
+    allowOutsideClick: false,
+    inputValidator: (value) => {
+      if (!value) {
+        return "Debes ingresar un nombre";
+      }
+    },
+  }).then((result) => {
+    if (result.isConfirmed) {
+      var nombreJugador = result.value;
 
-  // Verificar si el jugador ingresó un nombre y no canceló la entrada
-  if (nombreJugador !== null && nombreJugador.trim() !== "") {
-    localStorage.setItem("jugador", nombreJugador);
-    window.location.href = "juego.html";
-    console.log("Nombre del jugador almacenado:", nombreJugador);
-  } else {
-    console.log("No se ingresó un nombre.");
-  }
+      // Verificar si el jugador ingresó un nombre y no canceló la entrada
+      if (nombreJugador.trim() !== "") {
+        localStorage.setItem("jugador", nombreJugador);
+        window.location.href = "juego.html";
+        console.log("Nombre del jugador almacenado:", nombreJugador);
+      } else {
+        console.log("No se ingresó un nombre válido.");
+      }
+    } else {
+      console.log("No se ingresó un nombre.");
+    }
+  });
 }
+
 
 function actualizarNombreJugador() {
   // Obtener el nombre del jugador almacenado en localStorage
@@ -281,7 +303,7 @@ var tecladoContainer = document.getElementById("ZonaPalabraBuscada");
 // Generar dinámicamente los divs con el contenido del array
 for (var i = 0; i < PalabraBuscada.length; i++) {
   var divTecla = document.createElement("div");
-  divTecla.className = "tecla-teclado1 btn m-1";
+  divTecla.className = "tecla-teclado1 btn";
   divTecla.id = PalabraBuscada[i];
 
   // Agregar el div al contenedor
@@ -425,6 +447,7 @@ alfabeto.forEach((letra) => {
 
           // Asignar el atributo src con la ruta de la primera imagen
           nuevaImagen.src = "assets/images/fotos_pastelazo/imagen1.png";
+          nuevaImagen.classList.add("img-fluid");
           // Obtener el elemento VIDA que deseas eliminar
           var vidas = document.getElementById("vida1");
           // Eliminar el elemento del DOM
@@ -441,6 +464,7 @@ alfabeto.forEach((letra) => {
 
           // Asignar el atributo src con la ruta de la segunda imagen
           nuevaImagen.src = "assets/images/fotos_pastelazo/imagen2.png";
+           nuevaImagen.classList.add("img-fluid");
           // Obtener el elemento VIDA que deseas eliminar
           var vidas = document.getElementById("vida2");
           // Eliminar el elemento del DOM
@@ -456,6 +480,7 @@ alfabeto.forEach((letra) => {
         `;
           // Asignar el atributo src con la ruta de la tercera imagen
           nuevaImagen.src = "assets/images/fotos_pastelazo/imagen3.png";
+           nuevaImagen.classList.add("img-fluid");
           // Obtener el elemento VIDA que deseas eliminar
           var vidas = document.getElementById("vida3");
           // Eliminar el elemento del DOM
@@ -471,6 +496,7 @@ alfabeto.forEach((letra) => {
         </div>
       `;
           nuevaImagen.src = "assets/images/fotos_pastelazo/imagen4.png";
+           nuevaImagen.classList.add("img-fluid");
           var vidas = document.getElementById("vida4");
           // Eliminar el elemento del DOM
           vidas.remove();
@@ -484,7 +510,8 @@ alfabeto.forEach((letra) => {
           <img src="assets/images/corazonAzul.png" class="corazon ml-2" alt="Corazón">
         </div>
       `;
-      nuevaImagen.src = "assets/images/fotos_pastelazo/imagen5.png";
+          nuevaImagen.src = "assets/images/fotos_pastelazo/imagen5.png";
+           nuevaImagen.classList.add("img-fluid");
           // Obtener el elemento VIDA que deseas eliminar
           var vidas = document.getElementById("vida5");
           // Eliminar el elemento del DOM
@@ -497,6 +524,7 @@ alfabeto.forEach((letra) => {
           barraFooter.innerHTML = `<h1>Sin Vidas <img src="assets/images/corazonAzul.png" class="corazon" alt="Corazón"></h1>`;
           // Asignar el atributo src con la ruta de la quinta imagen
           nuevaImagen.src = "assets/images/fotos_pastelazo/imagen6.png";
+           nuevaImagen.classList.add("img-fluid");
           // Obtener el elemento VIDA que deseas eliminar
           var vidas = document.getElementById("vida6");
           // Eliminar el elemento del DOM
@@ -533,6 +561,9 @@ alfabeto.forEach((letra) => {
 
     // Establecer la ruta de la imagen pregunta.png
     imagenPregunta.src = "assets/images/galeria/pregunta.png";
+
+    // Agregar la clase "img-fluid" a la imagen
+    imagenPregunta.classList.add("img-fluid");
 
     // Agregar la imagen al elemento con el ID "ZonaImagen"
     var zonaImagen = document.getElementById("ZonaImagen");
