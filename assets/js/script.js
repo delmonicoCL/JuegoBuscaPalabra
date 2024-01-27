@@ -329,7 +329,7 @@ alfabeto.forEach((letra) => {
   // Crear un elemento div para representar cada tecla
   const teclaElemento = document.createElement("div");
   // Asignar clases para aplicar estilos de Bootstrap y personalizados
-  teclaElemento.className = "tecla-teclado btn m-1";
+  teclaElemento.className = "tecla-teclado btn";
   // Establecer el contenido de la tecla como la letra actual
   teclaElemento.textContent = letra;
   // Asignar el Id de la tecla como la letra actual
