@@ -5,14 +5,14 @@
 }
 
 body {
-  background: #1d202b;
-  background-image: url("https://raw.githubusercontent.com/delmonicoCL/LaiaBCN/main/assets/images/fondo.png");
-  /*background-image: url('/assets/images/fondo.png');*/
+ 
 
-  background-size: cover;
-  background-position: center;
   color: #fff;
   font-family: "Rammetto One", sans-serif;
+
+  background-image: url('/JuegoPastelazo/assets/images/b.jpg');
+  background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+  background-repeat: no-repeat; /* Evita que la imagen de fondo se repita */
 }
 
 img {
@@ -40,6 +40,7 @@ img {
   height: 20vh;
   color: #345574;
   text-align: center;
+  background: #fff;
 }
 
 .Imagen {
