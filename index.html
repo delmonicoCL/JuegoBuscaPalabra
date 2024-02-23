@@ -27,32 +27,27 @@
   </head>
 
   <body>
+    <div class="container d-flex justify-content-center">
+      <div class="container mt-3">
+        <div class="ImagenFondo d-flex justify-content-center">
+          <img src="assets/images/buscapalabras.png" alt="" />
+        </div>
 
-    <div class="BarraHeader mt-5 d-flex justify-content-around" style="min-height: 100px">
-      <div id="nombreJugadorDiv" style="color: #345675">
-        <h3>BUSCAPALABRAS</h3>
+        <div
+          id="BarraFooter"
+          class="BarraFooterIndex mt-3"
+          style="min-height: 100px"
+        >
+          <button
+            type="button"
+            class="btn botonJugar"
+            onclick="nombreJugador()"
+          >
+            A JUGAR
+          </button>
+        </div>
       </div>
     </div>
-
-    
-    <div class="container mt-5 d-flex align-items-center">
-      <!-- Contenedor del video -->
-      <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src="assets/media/buscapalabras .mp4" allowfullscreen autoplay></iframe>
-      </div>
-    </div>
-
-
-
-    <div
-      id="BarraFooter"
-      class="BarraFooterIndex mt-5 d-flex justify-content-around" style="min-height: 100px"
-    >
-      <button type="button" class="btn botonJugar" onclick="nombreJugador()">
-        A JUGAR
-      </button>
-    </div>
-
     <!-- Scripts de jQuery y Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
