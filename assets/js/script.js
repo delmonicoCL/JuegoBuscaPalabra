@@ -134,7 +134,7 @@ function nombreJugador() {
     confirmButtonText: "Aceptar",
     cancelButtonText: "Cancelar",
     confirmButtonColor: "#3bc691", // Color del botón de confirmación
-    cancelButtonColor: "#fdc477", // Color del botón de cancelación
+    cancelButtonColor: "#fc8d72", // Color del botón de cancelación
     allowOutsideClick: false,
     inputValidator: (value) => {
       if (!value) {

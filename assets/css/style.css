@@ -10,7 +10,8 @@ body {
   color: #fff;
   font-family: "Rammetto One", sans-serif;
 
-background-image: url('https://raw.githubusercontent.com/delmonicoCL/LaiaBCN/main/assets/images/fondo.png');
+/* background-image: url('https://raw.githubusercontent.com/delmonicoCL/LaiaBCN/main/assets/images/fondo.png'); */
+background-image: url('/assets/images/13.png');
   background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
   background-repeat: no-repeat; /* Evita que la imagen de fondo se repita */
 }
@@ -48,7 +49,9 @@ img {
 }
 
 .BarraHeader {
-  background-color: #98f3c9;
+  background-color:#345574;
+  
+  
   max-width: 1200px;
   margin: auto;
   display: flex;
@@ -60,7 +63,7 @@ img {
 }
 
 .BarraFooter {
-  background-color: #fc8d72;
+  background-color: #3bc691;
   max-width: 1200px;
   margin: auto;
   display: flex;
@@ -116,7 +119,7 @@ img {
   width: 90vw;
   border-radius: 15px;
   font-size: 2em;
-  background-color: #3bc691;
+  background-color: #fc8d72;
 }
 
 /* Estilo para teclas seleccionadas */
