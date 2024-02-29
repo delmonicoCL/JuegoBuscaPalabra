@@ -48,6 +48,13 @@ img {
   height: 550px;
 }
 
+
+.ImagenFondo{
+  max-width: 100%; /* Para asegurar que la imagen no exceda el tamaño del contenedor */
+  height: auto; /* Para que la altura se ajuste automáticamente al ancho */
+}
+
+
 .BarraHeader {
   background-color:#345574;
   

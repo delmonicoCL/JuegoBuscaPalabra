@@ -159,7 +159,6 @@ function nombreJugador() {
   });
 }
 
-
 function actualizarNombreJugador() {
   // Obtener el nombre del jugador almacenado en localStorage
   var nombreJugador = localStorage.getItem("jugador");
@@ -180,6 +179,9 @@ function actualizarNombreJugador() {
 actualizarNombreJugador();
 
 // Array de Palabras
+
+
+
 
 var Palabras = [
   {
@@ -316,6 +318,7 @@ for (var i = 0; i < PalabraBuscada.length; i++) {
 
 contadorErrores = 0;
 contadorAciertos = 0;
+
 // Array con el alfabeto de la A a la Z
 const alfabeto = Array.from({ length: 26 }, (_, i) =>
   String.fromCharCode("A".charCodeAt(0) + i)
@@ -332,9 +335,7 @@ alfabeto.forEach((letra) => {
   teclaElemento.className = "tecla-teclado btn";
   // Establecer el contenido de la tecla como la letra actual
   teclaElemento.textContent = letra;
-  // Asignar el Id de la tecla como la letra actual
-  teclaElemento.id = letra;
-
+  
   var teclaseleccionada;
 
   // Cargar Imagen Pregunta
@@ -343,7 +344,7 @@ alfabeto.forEach((letra) => {
   // Agregar la tecla al contenedor del teclado
   contenedorTeclado.appendChild(teclaElemento);
 
-  // Agregar un evento de clic a cada tecla
+  // Agregar un evento de clic a cada tecla CAMBIAR COLOR y no permitir elegirlo
   teclaElemento.addEventListener("click", function () {
     // Verificar si la tecla no ha sido seleccionada
     if (!this.classList.contains("teclaseleccionada")) {
@@ -353,224 +354,221 @@ alfabeto.forEach((letra) => {
       this.classList.add("teclaseleccionada");
       // Desactivar el evento de clic para evitar selecciones adicionales
       this.removeEventListener("click", arguments.callee);
-
-      // Imprimir el valor en la consola
-      console.log("Letra seleccionada:", teclaseleccionada);
-
-      // Imprimir Array Palabra Buscada
-      console.log("PalabraBUSCADA:", PalabraBuscada);
-
-      buscarLetra();
+        buscarLetra();
     }
-
-    function buscarLetra() {
-      // Variable para verificar si la letra fue encontrada
-      var letraEncontrada = false;
-
-      // Recorre el array PalabraBuscada
-      for (var i = 0; i < PalabraBuscada.length; i++) {
-        // Compara la letra actual con teclaseleccionada
-
-        if (PalabraBuscada[i] === teclaseleccionada) {
-          contadorAciertos++;
-          console.log("ContadorAciertos:", contadorAciertos);
-          LetraCorrecta.play();
-          // Muestra una alerta con la letra encontrada
-
-          // Obtener todos los elementos con el ID igual al contenido de teclaseleccionada
-          var letraApintar = document.querySelectorAll(
-            '[id="' + teclaseleccionada + '"]'
-          );
-
-          // Iterar sobre los elementos y actualizar su contenido con el valor de teclaseleccionada
-          letraApintar.forEach(function (letra) {
-            letra.innerHTML = teclaseleccionada;
-          });
-          // Indica que la letra fue encontrada
-          letraEncontrada = true;
-        }
-
-        if (PalabraBuscada.length === contadorAciertos) {
-          console.log("HAS GANADO");
-          Ganaste.play();
-          var zonaInfo = document.getElementById("ZonaInfo");
-          zonaInfo.innerHTML = `<h5>${PalabraSeleccionada.descripcion}</h5>`;
-
-          cambiarZonaFotter();
-          ganaste();
-
-          // Verificar si ya se ha agregado la imagen
-          var zonaImagen = document.getElementById("ZonaImagen");
-
-          // Obtener el elemento de imagen anterior
-          var imagenAnterior = zonaImagen.lastChild;
-
-          // Eliminar el elemento de imagen anterior del DOM
-          zonaImagen.removeChild(imagenAnterior);
-
-          // if (!zonaImagen.querySelector('img')) {
-          // Crear un nuevo objeto de imagen
-          var nuevaImagen = new Image();
-          nuevaImagen.src = PalabraSeleccionada.src;
-
-          // Agregar la nueva imagen al DOM
-          zonaImagen.appendChild(nuevaImagen);
-          // }
-        }
-      }
-
-      if (!letraEncontrada) {
-        contadorErrores++;
-        console.log("ContadorErrores:", contadorErrores);
-        // Obtener el elemento "Zona Imagen"
-        var zonaImagen = document.getElementById("ZonaImagen");
-
-        // Obtener el elemento de imagen anterior
-        var imagenAnterior = zonaImagen.lastChild;
-
-        // Eliminar el elemento de imagen anterior del DOM
-        zonaImagen.removeChild(imagenAnterior);
-
-        // Crear un nuevo objeto de imagen
-        var nuevaImagen = new Image();
-
-        if (contadorErrores === 1) {
-          LetraIncorrecta.play();
-
-          // Modifica BARRRA FOOTER con la cantidad de vidas restantes //
-          var barraFooter = document.getElementById("BarraFooter");
-          barraFooter.innerHTML = `<div class="d-flex justify-content-center align-items-center justify-content-center">
-          <h1 class="m-0">Tienes 5 </h1>
-          <img src="assets/images/corazonAzul.png" class="corazon ml-2" alt="Corazón">
-        </div>
-      `;
-
-          // Asignar el atributo src con la ruta de la primera imagen
-          nuevaImagen.src = "assets/images/fotos_pastelazo/imagen1.png";
-          nuevaImagen.classList.add("img-fluid");
-          // Obtener el elemento VIDA que deseas eliminar
-          var vidas = document.getElementById("vida1");
-          // Eliminar el elemento del DOM
-          vidas.remove();
-        } else if (contadorErrores === 2) {
-          LetraIncorrecta.play();
-          // Modifica BARRRA FOOTER con la cantidad de vidas restantes //
-          var barraFooter = document.getElementById("BarraFooter");
-          barraFooter.innerHTML = `<div class="d-flex justify-content-center align-items-center justify-content-center">
-          <h1 class="m-0">Tienes 4 </h1>
-          <img src="assets/images/corazonAzul.png" class="corazon ml-2" alt="Corazón">
-        </div>
-      `;
-
-          // Asignar el atributo src con la ruta de la segunda imagen
-          nuevaImagen.src = "assets/images/fotos_pastelazo/imagen2.png";
-           nuevaImagen.classList.add("img-fluid");
-          // Obtener el elemento VIDA que deseas eliminar
-          var vidas = document.getElementById("vida2");
-          // Eliminar el elemento del DOM
-          vidas.remove();
-        } else if (contadorErrores === 3) {
-          LetraIncorrecta.play();
-          // Modifica BARRRA FOOTER con la cantidad de vidas restantes //
-          var barraFooter = document.getElementById("BarraFooter");
-          barraFooter.innerHTML = `<div class="d-flex justify-content-center align-items-center justify-content-center">
-            <h1 class="m-0">Tienes 3</h1>
-            <img src="assets/images/corazonAzul.png" class="corazon ml-2" alt="Corazón">
-          </div>
-        `;
-          // Asignar el atributo src con la ruta de la tercera imagen
-          nuevaImagen.src = "assets/images/fotos_pastelazo/imagen3.png";
-           nuevaImagen.classList.add("img-fluid");
-          // Obtener el elemento VIDA que deseas eliminar
-          var vidas = document.getElementById("vida3");
-          // Eliminar el elemento del DOM
-          vidas.remove();
-        } else if (contadorErrores === 4) {
-          LetraIncorrecta.play();
-          // Asignar el atributo src con la ruta de la cuarta imagen
-          // Modifica BARRRA FOOTER con la cantidad de vidas restantes //
-          var barraFooter = document.getElementById("BarraFooter");
-          barraFooter.innerHTML = `<div class="d-flex justify-content-center align-items-center justify-content-center">
-          <h1 class="m-0">Tienes 2 </h1>
-          <img src="assets/images/corazonAzul.png" class="corazon ml-2" alt="Corazón">
-        </div>
-      `;
-          nuevaImagen.src = "assets/images/fotos_pastelazo/imagen4.png";
-           nuevaImagen.classList.add("img-fluid");
-          var vidas = document.getElementById("vida4");
-          // Eliminar el elemento del DOM
-          vidas.remove();
-        } else if (contadorErrores === 5) {
-          LetraIncorrecta.play();
-          // Asignar el atributo src con la ruta de la quinta imagen
-          // Modifica BARRRA FOOTER con la cantidad de vidas restantes //
-          var barraFooter = document.getElementById("BarraFooter");
-          barraFooter.innerHTML = `<div class="d-flex justify-content-center align-items-center justify-content-center">
-          <h1 class="m-0">Tienes 1</h1>
-          <img src="assets/images/corazonAzul.png" class="corazon ml-2" alt="Corazón">
-        </div>
-      `;
-          nuevaImagen.src = "assets/images/fotos_pastelazo/imagen5.png";
-           nuevaImagen.classList.add("img-fluid");
-          // Obtener el elemento VIDA que deseas eliminar
-          var vidas = document.getElementById("vida5");
-          // Eliminar el elemento del DOM
-          vidas.remove();
-        } else if (contadorErrores === 6) {
-          Finjuego.play();
-
-          // Modifica BARRRA FOOTER con la cantidad de vidas restantes //
-          var barraFooter = document.getElementById("BarraFooter");
-          barraFooter.innerHTML = `<h1>Sin Vidas <img src="assets/images/corazonAzul.png" class="corazon" alt="Corazón"></h1>`;
-          // Asignar el atributo src con la ruta de la quinta imagen
-          nuevaImagen.src = "assets/images/fotos_pastelazo/imagen6.png";
-           nuevaImagen.classList.add("img-fluid");
-          // Obtener el elemento VIDA que deseas eliminar
-          var vidas = document.getElementById("vida6");
-          // Eliminar el elemento del DOM
-          vidas.remove();
-          perdiste();
-        }
-
-        // Obtener el elemento "Zona Imagen" y agregar la nueva imagen
-        var zonaImagen = document.getElementById("ZonaImagen");
-        zonaImagen.appendChild(nuevaImagen);
-      }
-    } //
-
-    function cambiarZonaFotter() {
-      // Obtén el elemento del div por su ID
-      var barraFooter = document.getElementById("BarraFooter");
-
-      // Define el nuevo contenido HTML que deseas establecer
-      var nuevoContenido = ` <h3 style="color: rgb(255, 254, 252)">
-        <a href="juego.html" style="text-decoration: none; color: inherit;">
-            VOLVER A JUGAR
-        </a>
-    </h3>`;
-
-      // Cambia el contenido del div utilizando innerHTML
-      barraFooter.innerHTML = nuevoContenido;
-    }
-  });
-
-  function CargarImagenPregunta() {
-    console.log("IMAGEN PREGUNTA");
-    // Crear un nuevo objeto de imagen
-    var imagenPregunta = new Image();
-
-    // Establecer la ruta de la imagen pregunta.png
-    imagenPregunta.src = "assets/images/galeria/pregunta.png";
-
-    // Agregar la clase "img-fluid" a la imagen
-    imagenPregunta.classList.add("img-fluid");
-
-    // Agregar la imagen al elemento con el ID "ZonaImagen"
-    var zonaImagen = document.getElementById("ZonaImagen");
-    zonaImagen.innerHTML = ""; // Limpiar cualquier contenido previo
-    zonaImagen.appendChild(imagenPregunta);
-  }
+ 
 });
+
+
+
+
+function buscarLetra() {
+  // Variable para verificar si la letra fue encontrada
+  var letraEncontrada = false;
+
+  // Recorre el array PalabraBuscada
+  for (var i = 0; i < PalabraBuscada.length; i++) {
+    // Compara la letra actual con teclaseleccionada
+
+    if (PalabraBuscada[i] === teclaseleccionada) {
+      contadorAciertos++;
+      console.log("ContadorAciertos:", contadorAciertos);
+      LetraCorrecta.play();
+      // Muestra una alerta con la letra encontrada
+
+      // Obtener todos los elementos con el ID igual al contenido de teclaseleccionada
+      var letraApintar = document.querySelectorAll(
+        '[id="' + teclaseleccionada + '"]'
+      );
+
+      // Iterar sobre los elementos y actualizar su contenido con el valor de teclaseleccionada
+      letraApintar.forEach(function (letra) {
+        letra.innerHTML = teclaseleccionada;
+      });
+      // Indica que la letra fue encontrada
+      letraEncontrada = true;
+    }
+
+    if (PalabraBuscada.length === contadorAciertos) {
+      console.log("HAS GANADO");
+      Ganaste.play();
+      var zonaInfo = document.getElementById("ZonaInfo");
+      zonaInfo.innerHTML = `<h5>${PalabraSeleccionada.descripcion}</h5>`;
+
+      cambiarZonaFotter();
+      ganaste();
+
+      // Verificar si ya se ha agregado la imagen
+      var zonaImagen = document.getElementById("ZonaImagen");
+
+      // Obtener el elemento de imagen anterior
+      var imagenAnterior = zonaImagen.lastChild;
+
+      // Eliminar el elemento de imagen anterior del DOM
+      zonaImagen.removeChild(imagenAnterior);
+
+      // if (!zonaImagen.querySelector('img')) {
+      // Crear un nuevo objeto de imagen
+      var nuevaImagen = new Image();
+      nuevaImagen.src = PalabraSeleccionada.src;
+
+      // Agregar la nueva imagen al DOM
+      zonaImagen.appendChild(nuevaImagen);
+      // }
+    }
+  }
+
+  if (!letraEncontrada) {
+    contadorErrores++;
+    console.log("ContadorErrores:", contadorErrores);
+    // Obtener el elemento "Zona Imagen"
+    var zonaImagen = document.getElementById("ZonaImagen");
+
+    // Obtener el elemento de imagen anterior
+    var imagenAnterior = zonaImagen.lastChild;
+
+    // Eliminar el elemento de imagen anterior del DOM
+    zonaImagen.removeChild(imagenAnterior);
+
+    // Crear un nuevo objeto de imagen
+    var nuevaImagen = new Image();
+
+    if (contadorErrores === 1) {
+      LetraIncorrecta.play();
+
+      // Modifica BARRRA FOOTER con la cantidad de vidas restantes //
+      var barraFooter = document.getElementById("BarraFooter");
+      barraFooter.innerHTML = `<div class="d-flex justify-content-center align-items-center justify-content-center">
+      <h1 class="m-0">Tienes 5 </h1>
+      <img src="assets/images/corazonAzul.png" class="corazon ml-2" alt="Corazón">
+    </div>
+  `;
+
+      // Asignar el atributo src con la ruta de la primera imagen
+      nuevaImagen.src = "assets/images/fotos_pastelazo/imagen1.png";
+      nuevaImagen.classList.add("img-fluid");
+      // Obtener el elemento VIDA que deseas eliminar
+      var vidas = document.getElementById("vida1");
+      // Eliminar el elemento del DOM
+      vidas.remove();
+    } else if (contadorErrores === 2) {
+      LetraIncorrecta.play();
+      // Modifica BARRRA FOOTER con la cantidad de vidas restantes //
+      var barraFooter = document.getElementById("BarraFooter");
+      barraFooter.innerHTML = `<div class="d-flex justify-content-center align-items-center justify-content-center">
+      <h1 class="m-0">Tienes 4 </h1>
+      <img src="assets/images/corazonAzul.png" class="corazon ml-2" alt="Corazón">
+    </div>
+  `;
+
+      // Asignar el atributo src con la ruta de la segunda imagen
+      nuevaImagen.src = "assets/images/fotos_pastelazo/imagen2.png";
+       nuevaImagen.classList.add("img-fluid");
+      // Obtener el elemento VIDA que deseas eliminar
+      var vidas = document.getElementById("vida2");
+      // Eliminar el elemento del DOM
+      vidas.remove();
+    } else if (contadorErrores === 3) {
+      LetraIncorrecta.play();
+      // Modifica BARRRA FOOTER con la cantidad de vidas restantes //
+      var barraFooter = document.getElementById("BarraFooter");
+      barraFooter.innerHTML = `<div class="d-flex justify-content-center align-items-center justify-content-center">
+        <h1 class="m-0">Tienes 3</h1>
+        <img src="assets/images/corazonAzul.png" class="corazon ml-2" alt="Corazón">
+      </div>
+    `;
+      // Asignar el atributo src con la ruta de la tercera imagen
+      nuevaImagen.src = "assets/images/fotos_pastelazo/imagen3.png";
+       nuevaImagen.classList.add("img-fluid");
+      // Obtener el elemento VIDA que deseas eliminar
+      var vidas = document.getElementById("vida3");
+      // Eliminar el elemento del DOM
+      vidas.remove();
+    } else if (contadorErrores === 4) {
+      LetraIncorrecta.play();
+      // Asignar el atributo src con la ruta de la cuarta imagen
+      // Modifica BARRRA FOOTER con la cantidad de vidas restantes //
+      var barraFooter = document.getElementById("BarraFooter");
+      barraFooter.innerHTML = `<div class="d-flex justify-content-center align-items-center justify-content-center">
+      <h1 class="m-0">Tienes 2 </h1>
+      <img src="assets/images/corazonAzul.png" class="corazon ml-2" alt="Corazón">
+    </div>
+  `;
+      nuevaImagen.src = "assets/images/fotos_pastelazo/imagen4.png";
+       nuevaImagen.classList.add("img-fluid");
+      var vidas = document.getElementById("vida4");
+      // Eliminar el elemento del DOM
+      vidas.remove();
+    } else if (contadorErrores === 5) {
+      LetraIncorrecta.play();
+      // Asignar el atributo src con la ruta de la quinta imagen
+      // Modifica BARRRA FOOTER con la cantidad de vidas restantes //
+      var barraFooter = document.getElementById("BarraFooter");
+      barraFooter.innerHTML = `<div class="d-flex justify-content-center align-items-center justify-content-center">
+      <h1 class="m-0">Tienes 1</h1>
+      <img src="assets/images/corazonAzul.png" class="corazon ml-2" alt="Corazón">
+    </div>
+  `;
+      nuevaImagen.src = "assets/images/fotos_pastelazo/imagen5.png";
+       nuevaImagen.classList.add("img-fluid");
+      // Obtener el elemento VIDA que deseas eliminar
+      var vidas = document.getElementById("vida5");
+      // Eliminar el elemento del DOM
+      vidas.remove();
+    } else if (contadorErrores === 6) {
+      Finjuego.play();
+
+      // Modifica BARRRA FOOTER con la cantidad de vidas restantes //
+      var barraFooter = document.getElementById("BarraFooter");
+      barraFooter.innerHTML = `<h1>Sin Vidas <img src="assets/images/corazonAzul.png" class="corazon" alt="Corazón"></h1>`;
+      // Asignar el atributo src con la ruta de la quinta imagen
+      nuevaImagen.src = "assets/images/fotos_pastelazo/imagen6.png";
+       nuevaImagen.classList.add("img-fluid");
+      // Obtener el elemento VIDA que deseas eliminar
+      var vidas = document.getElementById("vida6");
+      // Eliminar el elemento del DOM
+      vidas.remove();
+      perdiste();
+    }
+
+    // Obtener el elemento "Zona Imagen" y agregar la nueva imagen
+    var zonaImagen = document.getElementById("ZonaImagen");
+    zonaImagen.appendChild(nuevaImagen);
+  }
+} //
+
+function cambiarZonaFotter() {
+  // Obtén el elemento del div por su ID
+  var barraFooter = document.getElementById("BarraFooter");
+
+  // Define el nuevo contenido HTML que deseas establecer
+  var nuevoContenido = ` <h3 style="color: rgb(255, 254, 252)">
+    <a href="juego.html" style="text-decoration: none; color: inherit;">
+        VOLVER A JUGAR
+    </a>
+</h3>`;
+
+  // Cambia el contenido del div utilizando innerHTML
+  barraFooter.innerHTML = nuevoContenido;
+}
+});
+
+function CargarImagenPregunta() {
+console.log("IMAGEN PREGUNTA");
+// Crear un nuevo objeto de imagen
+var imagenPregunta = new Image();
+
+// Establecer la ruta de la imagen pregunta.png
+imagenPregunta.src = "assets/images/galeria/pregunta.png";
+
+// Agregar la clase "img-fluid" a la imagen
+imagenPregunta.classList.add("img-fluid");
+
+// Agregar la imagen al elemento con el ID "ZonaImagen"
+var zonaImagen = document.getElementById("ZonaImagen");
+zonaImagen.innerHTML = ""; // Limpiar cualquier contenido previo
+zonaImagen.appendChild(imagenPregunta);
+}
 
 const SonidoTecla = new Audio("assets/media/mp3/tecla_maquinaescribir.wav");
 const LetraCorrecta = new Audio("assets/media/mp3/piezacorrecta.mp3");
